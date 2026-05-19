@@ -132,7 +132,7 @@ module "ec2_instances" {
   }
 }
 
-module "s3_bucket" {
+module "terraform-aws-s3-bucket-md" {
   source = "app.terraform.io/policy-as-code-training/s3-bucket-md/aws"
   version = "1.0.1"
 
