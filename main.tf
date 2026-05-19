@@ -133,7 +133,7 @@ module "ec2_instances" {
 }
 
 module "terraform-aws-s3-bucket-md" {
-  source = "app.terraform.io/policy-as-code-training/s3-bucket-md/aws"
+  source = "app.terraform.io/policy-as-code-training/s3-bucket-md/AWS"
   version = "1.0.1"
 
   bucket_name = "hcp-bucket-md-05-19-2026"
