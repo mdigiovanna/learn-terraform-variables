@@ -1,7 +1,19 @@
 terraform {
+/*  cloud {
+    organization = "policy-as-code-training"
+    workspaces {
+      name = "tf-vault-qa-md"
+    }
+  } */
   required_providers {
     aws = {
       source = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+
+    random = {
+      source  = "hashicorp/random"
+      version = "~> 3.5"
     }
   }
 }
@@ -16,7 +28,7 @@ data "aws_availability_zones" "available" {
 
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
-  version = "2.64.0"
+  version = "~> 5.0"
 
   cidr = "10.0.0.0/16"
 
@@ -109,8 +121,8 @@ module "elb_http" {
 module "ec2_instances" {
   source = "./modules/aws-instance"
 
-  instance_count     = 2
-  instance_type      = "t2.micro"
+  instance_count = var.instance_count
+  instance_type  = var.instance_type
   subnet_ids         = module.vpc.private_subnets[*]
   security_group_ids = [module.app_security_group.this_security_group_id]
 
