@@ -132,9 +132,9 @@ module "ec2_instances" {
   }
 }
 
-module "terraform-aws-s3-bucket-md" {
-  source = "app.terraform.io/policy-as-code-training/s3-bucket-md/aws"
-  version = "1.2.0"
-
-  bucket_name = "hcp-bucket-md-05-19-2026"
-}
+#module "terraform-aws-s3-bucket-md" {
+#  source = "app.terraform.io/policy-as-code-training/s3-bucket-md/aws"
+#  version = "1.2.0"
+#
+#  bucket_name = "hcp-bucket-md-05-19-2026"
+#}
